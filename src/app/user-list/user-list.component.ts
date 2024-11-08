@@ -18,11 +18,13 @@ export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'email', 'role', 'actions'];
   dataSource: MatTableDataSource<User>;
 
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private dataService: DataService, public dialog: MatDialog, public cdr: ChangeDetectorRef) {
-    this.dataSource = new MatTableDataSource(this.dataService.getUsers());
+    // this.dataSource = new MatTableDataSource(this.dataService.getUsers());
+    this.dataSource = new MatTableDataSource(this.dataService.getUsers().sort((a, b) => a.name.localeCompare(b.name)));
   }
 
   ngOnInit(): void {
@@ -30,12 +32,13 @@ export class UserListComponent implements OnInit {
   }
 
   loadUsers(): void {
-    const users = this.dataService.getUsers();
+    const users = this.dataService.getUsers().sort((a, b) => a.name.localeCompare(b.name));
+    console.log("user",users)
     this.dataSource = new MatTableDataSource(users);
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator; 
     this.dataSource.sort = this.sort;
     this.cdr.detectChanges();
   }
