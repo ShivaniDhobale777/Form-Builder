@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add User</h1>
+<div mat-dialog-content>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput name="name" [(ngModel)]="newUser.name" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input matInput name="email" [(ngModel)]="newUser.email" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select name="role" [(ngModel)]="newUser.role" required>
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="User">User</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button color="primary" (click)="onSubmit(userForm)">Submit</button>
+</div>
