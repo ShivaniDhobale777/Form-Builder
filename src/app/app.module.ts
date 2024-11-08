@@ -18,6 +18,8 @@ import { UserEditDialogComponent } from './user-edit-dialog/user-edit-dialog.com
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UserListComponent,
     UserFormComponent,
     RoleManagementComponent,
-    UserEditDialogComponent
+    UserEditDialogComponent,
+    FormBuilderComponent,
+    DynamicFormComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

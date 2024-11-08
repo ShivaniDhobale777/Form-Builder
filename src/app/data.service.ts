@@ -24,7 +24,7 @@ export class DataService {
         { id: 7, name: 'smital Doe', email: 'ooo@example.com', role: 'Admin' },
         { id: 8, name: 'jou Smith', email: 'asss@example.com', role: 'User' },
       ];
-      this.saveUsers(); // Save default users to localStorage
+      this.saveUsers();
     }
   }
 
@@ -35,8 +35,8 @@ export class DataService {
 
   addUser(user: User) {
     user.id = new Date().getTime(); // Ensure ID is set when adding a user
-  this.users.push(user);
-  this.saveUsers();
+    this.users.push(user);
+    this.saveUsers();
   }
 
 
@@ -45,12 +45,12 @@ export class DataService {
     if (index !== -1) {
       console.log("Updating user:", updatedUser);
       this.users[index] = updatedUser;  // Update the user in the array
-      this.saveUsers();  // Save the updated users to localStorage
+      this.saveUsers();
     } else {
       console.log("User not found for update:", updatedUser);  // Log if the user is not found
     }
   }
-  
+
 
   deleteUser(userId: number) {
     this.users = this.users.filter(user => user.id !== userId);

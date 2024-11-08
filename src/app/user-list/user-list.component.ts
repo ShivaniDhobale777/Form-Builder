@@ -41,22 +41,22 @@ export class UserListComponent implements OnInit {
   }
 
   editUser(user: any): void {
-    console.log("Opening dialog with user:", user);  // Log the full user object
+    console.log("Opening dialog with user:", user);
     const dialogRef = this.dialog.open(UserEditDialogComponent, {
       width: '400px',
       data: user
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log("Updated user data from dialog:", result);  // Log updated user data
-        this.dataService.updateUser(result);  // Call updateUser with the result from dialog
-        this.loadUsers();  // Reload users to display updated data
+        console.log("Updated user data from dialog:", result);
+        this.dataService.updateUser(result);
+        this.loadUsers();
       }
     });
   }
-  
-  
+
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -65,10 +65,10 @@ export class UserListComponent implements OnInit {
 
   deleteUser(user: any): void {
     var userid = user;
-    console.log(user,"id")
+    console.log(user, "id")
     if (confirm('Are you sure you want to delete this user?')) {
       this.dataService.deleteUser(userid);
-      this.loadUsers();  // Reload users after deletion
+      this.loadUsers();
     }
   }
 
@@ -83,9 +83,9 @@ export class UserListComponent implements OnInit {
       if (result) {
         console.log("New user data:", result);
         this.dataService.addUser(result); // Add the new user to the service
-        this.loadUsers(); // Reload the users list
+        this.loadUsers();
       }
     });
-  
-}
+
+  }
 }

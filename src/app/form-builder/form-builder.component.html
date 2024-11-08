@@ -1,0 +1,61 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h3>Form Builder</h3>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="formBuilder" (ngSubmit)="submit(formBuilder)">
+                <div class="mb-3">
+                    <label for="fieldName" class="form-label">Name</label>
+                    <input type="text" id="fieldName" formControlName="Name" class="form-control"
+                        placeholder="Enter your name" />
+                    <div class="text-danger" *ngIf="Name.touched && Name.invalid">
+                        <div *ngIf="Name.errors?.['required']"> feild is required</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" id="surname" formControlName="Surname" class="form-control"
+                        placeholder="Enter your username" />
+                    <div class="text-danger" *ngIf="Surname.touched && Surname.invalid">
+                        <div *ngIf="Surname.errors?.['required']"> feild is required</div>
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="fieldLabel" class="form-label">mobile no:</label>
+                    <input type="text" id="fieldLabel" formControlName="mobile" class="form-control"
+                        placeholder="Enter your mobileno" />
+                    <div class="text-danger" *ngIf="mobile.touched && mobile.invalid">
+                        <div *ngIf="mobile.errors?.['required']"> feild is required</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fieldType" class="form-label">education Type</label>
+                    <select id="fieldType" formControlName="fieldType" class="form-select">
+                        <option>select education type</option>
+                        <option *ngFor="let type of fieldTypes" [value]="type">{{ type }}</option>
+                    </select>
+                    <div class="text-danger" *ngIf="fieldType.touched && fieldType.invalid">
+                        <div *ngIf="fieldType.errors?.['required']"> feild is required</div>
+                    </div>
+                </div>
+
+                <label for="gender" class="form-label">Gender:</label>
+                <div class="form-check">
+                    <input type="radio" id="male" formControlName="gender" value="male" class="form-check-input">
+                    <label for="male" class="form-check-label">Male</label>
+                </div>
+
+                <div class="form-check">
+                    <input type="radio" id="female" formControlName="gender" value="female" class="form-check-input">
+                    <label for="female" class="form-check-label">Female</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-4">Submit</button>
+            </form>
+        </div>
+    </div>

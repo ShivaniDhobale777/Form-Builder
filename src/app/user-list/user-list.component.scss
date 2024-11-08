@@ -1,24 +1,26 @@
 .user-list-container {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  
-    .search-input {
-      margin-bottom: 16px;
-      width: 100%;
-    }
-  
-    table {
-      width: 100%;
-      mat-header-cell, mat-cell {
-        padding: 8px;
-      }
-    }
-  }
-  
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 
-  .btn{
-    margin-left: 90%;
-    margin-bottom:10%;
+  .search-input {
+    margin-bottom: 16px;
+    width: 100%;
   }
+
+  table {
+    width: 100%;
+
+    mat-header-cell,
+    mat-cell {
+      padding: 8px;
+    }
+  }
+}
+
+
+.btn {
+  margin-left: 90%;
+  margin-bottom: 10%;
+}
